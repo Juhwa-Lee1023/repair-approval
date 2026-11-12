@@ -1,20 +1,21 @@
-# Demo script (under 3 minutes)
+# Demonstration video
 
-Record the real app on the local machine against PayPal Sandbox. Start from `npm run reset`. Keep the Sandbox label visible. Don't show the shop key, the customer link token, `.env` files or the PayPal Developer dashboard. Don't use the developer-account balance page; it isn't a live ledger.
+Actual local app and PayPal Sandbox screen recording, edited to 2 minutes 3 seconds. English captions describe the visible steps. Waiting time is shortened; no generated voice or third-party music is used.
 
-| Time | Screen | Action | Voice-over (suggested) |
-|---|---|---|---|
-| 0:00–0:15 | Shop, RO-1042 | Show the job header and three quotes | "A shop is replacing brake pads. The mechanic found a cracked radiator hose and a dirty air filter." |
-| 0:15–0:30 | Shop | **Send to customer** on quote 2, **Create customer link**, open it | "The shop sends one link. The customer doesn't need an account." |
-| 0:30–1:00 | Customer (phone width) | Show note and items. Type "Hose only. Leave the filter for next time." → **Ask** → **Select these items** | "The customer answers in their own words. The assistant only reads this quote. It suggests the hose and its labor, $103. It can't approve anything." |
-| 1:00–1:10 | Customer | Ask "Can you knock $20 off?" | "Price requests go to the shop. The assistant doesn't negotiate." |
-| 1:10–1:30 | Customer review | Show the list, "Not included: Engine air filter", the three steps; press **Approve $103.00 and continue to PayPal** | "The customer approves exact items. Next, PayPal holds $103. Nothing is charged yet." |
-| 1:30–1:50 | PayPal Sandbox | Expand *Order details* (two items), approve | "PayPal shows the same two lines. Its list is collapsed by default, which is why our page shows them first." |
-| 1:50–2:05 | Customer | Return message | "Back in the app: held, not charged." |
-| 2:05–2:25 | Shop | Work: Approved v1, 2 of 3 items. Payment: Held, not charged. **Mark work done** → **Charge $103.00** → Charged. Open *PayPal record* | "The shop charges after the work is done. The server charges exactly the approved amount and checks PayPal's record before showing Charged." |
-| 2:25–2:45 | Shop | Quote 3 (filter, approved and held earlier): **Cancel work and release hold** → Hold released | "If approved work is cancelled, the hold is released. A customer who declines up front never had a hold, so there's nothing to release." |
-| 2:45–2:55 | Shop history | Scroll the history | "Every approval, version, hold, charge and release is recorded." |
+The fictional order is RO-1042. The video shows a fresh run: a $103 hose-and-labor approval and charge, followed by a separate $25 filter approval and hold release. The independent $420 test is described in QA and is not shown as part of this run.
 
-Before recording: approve quote 3 ($25) in PayPal so it shows as held when you reach it. Budget: each run creates up to 3 Sandbox orders.
+| Time | English captions |
+| --- | --- |
+| 0:00–0:07 | “Hose only. Leave the filter for next time.” Repair Approval turns that reply into items the customer checks. |
+| 0:07–0:20 | The customer opens the quote and replies: “Hose only. Leave the filter for next time.” |
+| 0:20–0:35 | The AI suggests the hose and labor for $103. The customer checks the suggestion before using it. |
+| 0:35–0:46 | Select the suggestion. The filter stays unchecked. Only the hose and labor make up the $103 total. |
+| 0:46–1:01 | Check the items and $103 total before PayPal opens. The $25 filter is listed as not included. |
+| 1:01–1:11 | PayPal Sandbox shows the same two items and $103. The customer approves a hold, not a charge. |
+| 1:11–1:30 | After doing the approved work, the shop marks it done, then charges the approved $103. |
+| 1:30–1:34 | $103 charged. The unapproved filter stays excluded. The quote and payment remain linked in the record. |
+| 1:34–1:39 | A separate request: the customer approved a $25 filter. The shop later cancels this work before doing it. |
+| 1:39–1:49 | Review the reason, then release the $25 hold. The customer is not charged for this cancelled work. |
+| 1:49–2:02 | Hold released, not charged. The $103 job keeps its own payment and approval record. |
 
-Captions should describe what is on screen at that moment. Don't add music you don't have rights to.
+The public export excludes the browser toolbar, customer-link access token, shop key, login screens, credentials, and developer account dashboard. Full source recordings remain private.

@@ -25,7 +25,7 @@ const EVENT_TEXT = {
   hold_released: (d) => `Work cancelled, hold ${d.authorization_id} released (${usd(d.amount_cents)}): ${d.reason}`,
   request_cancelled_no_hold: (d) => `Request cancelled before any hold; PayPal not called: ${d.reason}`,
   paypal_checked: (d) => `Checked PayPal: ${d.result}`,
-  paypal_reconciled: (d) => `Checked with PayPal; payment state is ${d.state}`,
+  paypal_reconciled: (d) => `Checked with PayPal: ${{ awaiting_buyer: 'waiting for customer approval', held: 'held, not charged', paid: 'charged', released: 'hold released', needs_check: 'result still needs checking', capture_pending: 'charge still pending', auth_pending: 'hold still pending', abandoned: 'customer left without approving', auth_expired: 'hold expired' }[d.state] || 'see the payment status above'}`,
 };
 
 async function load() {

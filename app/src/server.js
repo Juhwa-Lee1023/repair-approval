@@ -116,7 +116,7 @@ export function createApp({ cfg, db, paypal, ai, now }) {
       } catch (e) {
         if (e instanceof AppError) return send(res, e.status, { error: e.code, message: e.message, ...e.extra });
         console.error('[server] unexpected error:', e?.message);
-        send(res, 500, { error: 'SERVER_ERROR', message: 'Something went wrong on our side. Nothing new was sent to PayPal.' });
+        send(res, 500, { error: 'SERVER_ERROR', message: 'We could not confirm the result. Check the payment status before trying again.' });
       }
     },
   };

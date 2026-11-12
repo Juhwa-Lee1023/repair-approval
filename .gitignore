@@ -25,3 +25,5 @@ video/raw/
 submission/
 
 video/
+
+.media-venv/

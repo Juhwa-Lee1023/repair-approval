@@ -177,5 +177,6 @@
   },
   "pre_app_sandbox_evidence": "reference evidence: 420 capture, 103 capture, 25 void, minimal capture response (see qa/EVIDENCE_READ.json)",
   "browser_ui_check": "NOT_RUN (no approved browser connector). JS syntax checked with node --check only.",
-  "video": "NOT_RECORDED"
+  "video": "NOT_RECORDED",
+  "historical_snapshot_note": "This is the implementation-worker snapshot at written_at_kst. Later browser and upload results are in FINAL_STATUS.json and final-browser-ledger.json."
 }

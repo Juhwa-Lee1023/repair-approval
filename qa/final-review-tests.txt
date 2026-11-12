@@ -2,26 +2,26 @@
 > repair-approval@0.1.0 test
 > node --test --test-reporter=spec test/*.test.js
 
-✔ money helpers use integer cents (1.065375ms)
-✔ base job: approve, hold, mark done, charge once; minimal capture response is verified by GET (123.042667ms)
-✔ price tampering, unknown items, quantity changes and total mismatch are rejected (46.908417ms)
-✔ add-on partial selection creates a separate order for exactly the selected items (47.618ms)
-✔ stale quote: edits clear the old choice, old hashes and old suggestions cannot approve, abandoned order is never authorized (47.599833ms)
-✔ quote with an active hold cannot be edited (46.145ms)
-✔ tokens: cross-job, expired, invalid, shop privilege and CSRF header (48.933459ms)
-✔ duplicate PayPal return and concurrent capture clicks never create a second authorization or capture (66.312ms)
-✔ capture timeout after PayPal charged: state is unknown, button blocked, reconcile finds the one capture (46.018959ms)
-✔ capture timeout before PayPal received it: reconcile replays with the same PayPal-Request-Id once (41.51475ms)
-✔ pending capture is not shown as paid until PayPal completes it (46.071792ms)
-✔ initial refusal creates no hold and no void; approved-then-cancelled work is voided once (61.469ms)
-✔ customer closes PayPal after approving scope: saved choice, nothing held, shop cancel does not call void (48.467ms)
-✔ order that does not match the approved amount or items is not authorized (28.532208ms)
-✔ authorize timeout: state needs_check, reconcile adopts the existing authorization without a second one (42.009292ms)
-✔ assistant output is checked: unknown items and invented amounts are rejected, payment questions use fixed text, no approval is created (67.087083ms)
-✔ secrets never appear in API responses, pages or the PayPal request log (94.976375ms)
-✔ state survives restart; a request interrupted by a crash becomes "check with PayPal", not a resend (180.760333ms)
-✔ sandbox host is fixed and non-allowed PayPal paths are refused (1.487375ms)
-✔ service refuses to build an order whose items no longer sum to the approved total (28.647416ms)
+✔ money helpers use integer cents (1.583542ms)
+✔ base job: approve, hold, mark done, charge once; minimal capture response is verified by GET (125.816125ms)
+✔ price tampering, unknown items, quantity changes and total mismatch are rejected (55.263834ms)
+✔ add-on partial selection creates a separate order for exactly the selected items (54.917916ms)
+✔ stale quote: edits clear the old choice, old hashes and old suggestions cannot approve, abandoned order is never authorized (56.7185ms)
+✔ quote with an active hold cannot be edited (38.841458ms)
+✔ tokens: cross-job, expired, invalid, shop privilege and CSRF header (54.723042ms)
+✔ duplicate PayPal return and concurrent capture clicks never create a second authorization or capture (82.517792ms)
+✔ capture timeout after PayPal charged: state is unknown, button blocked, reconcile finds the one capture (48.06075ms)
+✔ capture timeout before PayPal received it: reconcile replays with the same PayPal-Request-Id once (35.928792ms)
+✔ pending capture is not shown as paid until PayPal completes it (34.807542ms)
+✔ initial refusal creates no hold and no void; approved-then-cancelled work is voided once (46.032ms)
+✔ customer closes PayPal after approving scope: saved choice, nothing held, shop cancel does not call void (33.368334ms)
+✔ order that does not match the approved amount or items is not authorized (23.522125ms)
+✔ authorize timeout: state needs_check, reconcile adopts the existing authorization without a second one (29.2505ms)
+✔ assistant output is checked: unknown items and invented amounts are rejected, payment questions use fixed text, no approval is created (42.57325ms)
+✔ secrets never appear in API responses, pages or the PayPal request log (40.451208ms)
+✔ state survives restart; a request interrupted by a crash becomes "check with PayPal", not a resend (30.636208ms)
+✔ sandbox host is fixed and non-allowed PayPal paths are refused (1.335417ms)
+✔ service refuses to build an order whose items no longer sum to the approved total (12.546584ms)
 ℹ tests 20
 ℹ suites 0
 ℹ pass 20
@@ -29,4 +29,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 1285.520084
+ℹ duration_ms 975.360292

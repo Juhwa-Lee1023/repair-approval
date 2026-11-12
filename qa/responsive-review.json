@@ -1,0 +1,23 @@
+{
+  "environment": "Chrome device toolbar emulation, not a physical phone",
+  "checks": [
+    {
+      "css_width": 390,
+      "screen": "customer item selection",
+      "horizontal_overflow": false
+    },
+    {
+      "css_width": 390,
+      "screen": "two items selected and review opened",
+      "total": "420.00",
+      "horizontal_overflow": false
+    },
+    {
+      "css_width": 320,
+      "screen": "approval review",
+      "horizontal_overflow": false,
+      "approve_button": "visible, wraps onto two lines"
+    }
+  ],
+  "no_payment_created": true
+}

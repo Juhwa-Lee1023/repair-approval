@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-11-13T04:05:31.319952+09:00",
+  "duration": 122.9,
+  "size_bytes": 34662554,
+  "sha256": "72e1b223be990e30c9948b559ef103b17f5c0c127426939dd1b84611f0236b4f",
+  "format": "H264 1280x960, English burned-in captions",
+  "source": "actual native Chrome window recordings",
+  "checks": [
+    "every edited segment visually inspected",
+    "caption timing matches selection, hold, charge and release",
+    "cropping corrected so release-confirmation button is visible",
+    "browser toolbar and access URLs excluded",
+    "no credentials or real customer data",
+    "below three-minute limit",
+    "Removed the mixed base-job/hold crop; retained the shop work-done and charge sequence."
+  ],
+  "audio": "no audio track; readable English captions"
+}

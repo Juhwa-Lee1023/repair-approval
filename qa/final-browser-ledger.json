@@ -1,0 +1,182 @@
+{
+  "recorded_at": "2026-11-12T18:58:28.822Z",
+  "environment": "PAYPAL_SANDBOX",
+  "runs": [
+    {
+      "database": "var",
+      "payments": [
+        {
+          "amount_cents": 42000,
+          "currency": "USD",
+          "state": "paid",
+          "order_id": "9NU74254N9051224M",
+          "authorization_id": "75545591FK2571616",
+          "capture_id": "0MY69093338311152",
+          "capture_status": "COMPLETED",
+          "work_done_at": "2026-11-12T18:28:21.843Z"
+        },
+        {
+          "amount_cents": 10300,
+          "currency": "USD",
+          "state": "paid",
+          "order_id": "2X199308LE922282L",
+          "authorization_id": "37T10613EK356404X",
+          "capture_id": "85V16202N03514737",
+          "capture_status": "COMPLETED",
+          "work_done_at": "2026-11-12T18:27:26.742Z"
+        },
+        {
+          "amount_cents": 2500,
+          "currency": "USD",
+          "state": "released",
+          "order_id": "7LS387331U1672940",
+          "authorization_id": "85M35384J63788404",
+          "capture_id": null,
+          "capture_status": null,
+          "work_done_at": null
+        }
+      ],
+      "ai": [
+        {
+          "model": "claude-sonnet-5-5",
+          "ok": 1,
+          "latency_ms": 4398,
+          "cost_usd": 0.0019177
+        },
+        {
+          "model": "claude-sonnet-5-5",
+          "ok": 1,
+          "latency_ms": 3270,
+          "cost_usd": 0.0005774
+        }
+      ],
+      "operations": [
+        {
+          "kind": "create_order",
+          "state": "succeeded",
+          "http_status": 200,
+          "remote_id": "9NU74254N9051224M"
+        },
+        {
+          "kind": "create_order",
+          "state": "succeeded",
+          "http_status": 200,
+          "remote_id": "2X199308LE922282L"
+        },
+        {
+          "kind": "create_order",
+          "state": "succeeded",
+          "http_status": 200,
+          "remote_id": "7LS387331U1672940"
+        },
+        {
+          "kind": "authorize",
+          "state": "succeeded",
+          "http_status": 201,
+          "remote_id": "2X199308LE922282L"
+        },
+        {
+          "kind": "authorize",
+          "state": "succeeded",
+          "http_status": 201,
+          "remote_id": "9NU74254N9051224M"
+        },
+        {
+          "kind": "capture",
+          "state": "succeeded",
+          "http_status": 201,
+          "remote_id": "85V16202N03514737"
+        },
+        {
+          "kind": "authorize",
+          "state": "succeeded",
+          "http_status": 201,
+          "remote_id": "7LS387331U1672940"
+        },
+        {
+          "kind": "capture",
+          "state": "succeeded",
+          "http_status": 201,
+          "remote_id": "0MY69093338311152"
+        },
+        {
+          "kind": "void",
+          "state": "succeeded",
+          "http_status": 200,
+          "remote_id": "85M35384J63788404"
+        }
+      ]
+    },
+    {
+      "database": "var-recording",
+      "payments": [
+        {
+          "amount_cents": 10300,
+          "currency": "USD",
+          "state": "paid",
+          "order_id": "8BY05804XF199980D",
+          "authorization_id": "7PY54965WR768663J",
+          "capture_id": "8U410437NW499683L",
+          "capture_status": "COMPLETED",
+          "work_done_at": "2026-11-12T18:43:13.746Z"
+        },
+        {
+          "amount_cents": 2500,
+          "currency": "USD",
+          "state": "released",
+          "order_id": "3A387302WU9395234",
+          "authorization_id": "79V348540H462894G",
+          "capture_id": null,
+          "capture_status": null,
+          "work_done_at": null
+        }
+      ],
+      "ai": [
+        {
+          "model": "claude-sonnet-5-5",
+          "ok": 1,
+          "latency_ms": 4902,
+          "cost_usd": 0.010177700000000001
+        }
+      ],
+      "operations": [
+        {
+          "kind": "create_order",
+          "state": "succeeded",
+          "http_status": 200,
+          "remote_id": "8BY05804XF199980D"
+        },
+        {
+          "kind": "authorize",
+          "state": "succeeded",
+          "http_status": 201,
+          "remote_id": "8BY05804XF199980D"
+        },
+        {
+          "kind": "capture",
+          "state": "succeeded",
+          "http_status": 201,
+          "remote_id": "8U410437NW499683L"
+        },
+        {
+          "kind": "create_order",
+          "state": "succeeded",
+          "http_status": 200,
+          "remote_id": "3A387302WU9395234"
+        },
+        {
+          "kind": "authorize",
+          "state": "succeeded",
+          "http_status": 201,
+          "remote_id": "3A387302WU9395234"
+        },
+        {
+          "kind": "void",
+          "state": "succeeded",
+          "http_status": 200,
+          "remote_id": "79V348540H462894G"
+        }
+      ]
+    }
+  ]
+}

@@ -1,30 +1,17 @@
 {
-  "status": "BROWSER_REVIEWED_UPLOADS_IN_PROGRESS_NOT_SUBMITTED",
+  "status": "REVIEWED_REPOSITORY_AND_VIDEO_UPLOADED_DEVPOST_DRAFT_IN_PROGRESS",
   "submission": "NOT_SUBMITTED",
-  "written_at_kst": "2026-11-13T03:44+0900",
+  "written_at_kst": "2026-11-13T04:14:43.703235+09:00",
   "deadline_kst": "2026-11-13T05:00+0900",
   "local_git": {
     "initialized": true,
-    "zip_built_from_commit": "c36b3c4",
-    "this_file_added_in_a_later_metadata_commit": true,
-    "pushed": false
+    "pushed": true
   },
   "source_zip": {
-    "path": "submission/repair-approval-source.zip",
-    "sha256": "7a1de2e7e604ed62d16c8a0928c73976efcddc9d24aa9354e68e6561afcde5ba",
-    "files": 51,
-    "excludes": [
-      "private/",
-      "reference/",
-      "handoff/",
-      "app/var/ (database, shop key, logs)",
-      "AGENTS.md",
-      "CLAUDE.md",
-      "MASTER_DEVELOPMENT_TASK.md",
-      ".env files"
-    ],
-    "secret_scan": "0 hits for PayPal client ID, secret, Basic auth string, shop key and customer token across 42 tracked files (values compared in-process, never printed)",
-    "clean_restore": "PASS: extracted to empty dir, npm ci, npm test 20/20, seed, server boot without credentials"
+    "path": "submission/Repair_Approval_Source_Code.zip",
+    "scope": "Public source, documentation, screenshots and QA. Credentials, local databases, raw recordings and tool environments are excluded.",
+    "artifact_manifest": "Release manifest and SHA256SUMS are supplied alongside the archive.",
+    "clean_restore": "Post-packaging result is recorded separately in qa/release-restore.json."
   },
   "run_command": "cd app && npm run reset && npm start   # http://127.0.0.1:8879",
   "tests": {
@@ -53,7 +40,7 @@
       "calls": 2,
       "file": "qa/ai-http-integration.json"
     },
-    "real_ai_total_cli_calls": 41,
+    "real_ai_total_cli_calls": 42,
     "real_ai_cost_usd_list_price": "about 0.22 total as reported by the CLI; runs on the existing local Claude login, no new API key",
     "real_sandbox_via_app_http": {
       "orders_created": 3,
@@ -79,17 +66,21 @@
       "request_log": "qa/sandbox-requests.jsonl"
     },
     "real_sandbox_buyer_approval_authorize_capture_void_via_app": "PASS: real Chrome buyer approval, 420/103 capture, 25 void; qa/browser-results.json",
-    "sandbox_order_budget": "3 of 15 new orders used"
+    "sandbox_order_budget": "5 of 15 new orders used; source app test 3, recorded walkthrough 2"
   },
-  "browser_ui_verification": "Desktop customer and shop flow verified; mobile-width review pending",
+  "browser_ui_verification": "PASS desktop: original 3-order flow and recorded 2-order flow, real AI selection, inline cancellation confirm/keep/release. PASS Chrome device-toolbar emulation: customer selection and review at 390 px, review at 320 px, no horizontal overflow. Not a physical phone/Safari test.",
   "video": {
-    "status": "NOT_RECORDED",
-    "youtube_url": null
+    "status": "UPLOADED_UNLISTED",
+    "duration_seconds": 122.9,
+    "path": "video/Repair_Approval_Demo_EN.mp4",
+    "youtube_url": "https://youtu.be/BEhhXPu255o",
+    "anonymous_playback": "PASS: signed-out Chrome incognito page showed Login and the actual video playing beyond 6 seconds."
   },
-  "public_repo_url": null,
+  "public_repo_url": "https://github.com/Juhwa-Lee1023/repair-approval",
   "hosted_demo_url": null,
   "devpost_submission_url": null,
   "remaining_user_actions": [
     "Final Devpost submission is not authorized by this upload workflow."
-  ]
+  ],
+  "devpost_draft_url": "https://devpost.com/submit-to/31302-paypal-ai-hackathon/manage/submissions/1299432-repair-approval/project-overview"
 }

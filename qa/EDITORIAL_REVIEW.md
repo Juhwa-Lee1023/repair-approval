@@ -11,9 +11,13 @@ Changes:
 - Simplified the status-page introduction to point to the approved items and payment status.
 - Reworded “Charging takes exactly…” to “Ready to charge the approved…” so it reads as the shop’s next action.
 - Replaced the browser prompt for cancelling work with an inline form showing the amount, reason, release button, and “Keep this work.” This keeps the quote visible and avoids a hidden modal.
+- Corrected the unexpected-server-error message: it no longer claims that nothing was sent to PayPal when the result may be unknown.
+- Replaced raw payment-state names in the shop history with readable payment labels.
 - Corrected walkthrough instructions: quote 2 is not automatically the first quote; the customer scrolls to it.
 - Updated browser verification claims after the actual Sandbox flows finished. Kept the failed AI trial and untested live-payment scope in detailed QA.
 
 Kept the paper/ink work-order layout, restrained navy actions, itemized prices, and separate Work/Payment rows. No fabricated user outcomes, stock illustrations, decorative metrics, or unverifiable human-review claim were added.
 
 The recording and final Devpost text receive a separate check after export. This review does not certify an AI-detection percentage.
+
+Final responsive check: Chrome device toolbar at 390 CSS px (item selection and review) and 320 CSS px (review). Amounts and controls fit without horizontal overflow. Physical phone and Safari were not tested.

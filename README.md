@@ -6,6 +6,10 @@ Repair Approval gives the customer a link to the shop's itemized quote. The cust
 
 Built for small independent repair shops that don't use a full shop-management suite. **PayPal Sandbox only. No real money moves.**
 
+![The customer checks a hose and labor quote before approving $103](docs/images/customer-review.jpg)
+
+[Watch the 2-minute demonstration](https://youtu.be/BEhhXPu255o) · [Local testing walkthrough](docs/TESTING.md)
+
 ## How it works
 
 | Step | Who | What happens |
