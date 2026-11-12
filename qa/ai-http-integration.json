@@ -1,0 +1,35 @@
+{
+  "note": "Real Claude CLI calls through the running app HTTP endpoint /api/c/quotes/:id/ask",
+  "results": [
+    {
+      "question": "Hose only. Leave the filter for next time.",
+      "http": 200,
+      "response": {
+        "suggestion_id": "ai_a2d775ffff4d7bb9",
+        "kind": "selection",
+        "answer": "You chose the upper radiator hose and the hose replacement labor, which together come to $103.00. The engine air filter is left out. You still need to review and approve this on the page.",
+        "selected_item_ids": [
+          "hose-part",
+          "hose-labor"
+        ],
+        "selection_total_cents": 10300,
+        "handoff_reason": null,
+        "version_hash": "010ed240111b99949ef34441daed087ed82c52bf92de5a861adbdb2be5d0459c"
+      }
+    },
+    {
+      "question": "Have I been charged anything yet?",
+      "http": 200,
+      "response": {
+        "suggestion_id": "ai_238cda9137e3e4a6",
+        "kind": "payment_question",
+        "answer": "Nothing is held or charged yet. Approve $103.00 in PayPal to finish.",
+        "selected_item_ids": [],
+        "selection_total_cents": null,
+        "handoff_reason": null,
+        "version_hash": "010ed240111b99949ef34441daed087ed82c52bf92de5a861adbdb2be5d0459c",
+        "fixed_text": true
+      }
+    }
+  ]
+}

@@ -750,7 +750,8 @@ export function createService({ db, paypal, ai, cfg, now = () => new Date() }) {
     } catch (e) {
       db.prepare('INSERT INTO ai_suggestions (id, quote_id, version_hash, question, provider, model, ok, error, latency_ms, created_at) VALUES (?,?,?,?,?,?,0,?,?,?)')
         .run(id, quoteId, v.hash, text, ai.name, ai.model || null, String(e.message).slice(0, 300), Date.now() - started, iso());
-      throw new AppError(502, 'AI_FAILED', 'The assistant could not answer just now. You can still choose items yourself or contact the shop.');
+      event(jobId, quoteId, 'customer', 'question_for_shop', { question: text, reason: 'assistant_could_not_answer' });
+      throw new AppError(502, 'AI_FAILED', 'The assistant could not answer this, so your message was passed to the shop. You can still choose items yourself.');
     }
     const stillCurrent = loadVersion(q.quote.get(quoteId));
     if (stillCurrent.hash !== v.hash) throw new AppError(409, 'STALE_QUOTE', 'The shop updated this quote while the assistant was answering. Read the new version first.');

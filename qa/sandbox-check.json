@@ -1,0 +1,108 @@
+{
+  "at": "2026-11-12T18:00:39.384Z",
+  "environment": "SANDBOX",
+  "app_base": "http://127.0.0.1:8879",
+  "steps": [
+    {
+      "name": "customer_approved_scope",
+      "quote": "Front brake pads",
+      "version": 1,
+      "status": 200,
+      "total_cents": 42000
+    },
+    {
+      "name": "checkout_double_click",
+      "statuses": [
+        200,
+        200
+      ],
+      "third_call_same_link": true,
+      "order_id": "9NU74254N9051224M",
+      "approve_host": "www.sandbox.paypal.com",
+      "payment_label": "Waiting for PayPal approval"
+    },
+    {
+      "name": "return_before_buyer_approval",
+      "status": 200,
+      "state": "awaiting_buyer",
+      "message": "PayPal has not recorded your approval yet."
+    },
+    {
+      "name": "return_with_wrong_order_id",
+      "status": 400,
+      "error": "ORDER_MISMATCH"
+    },
+    {
+      "name": "customer_approved_scope",
+      "quote": "Found during the brake job",
+      "version": 1,
+      "status": 200,
+      "total_cents": 10300
+    },
+    {
+      "name": "checkout_double_click",
+      "statuses": [
+        200,
+        200
+      ],
+      "third_call_same_link": true,
+      "order_id": "2X199308LE922282L",
+      "approve_host": "www.sandbox.paypal.com",
+      "payment_label": "Waiting for PayPal approval"
+    },
+    {
+      "name": "return_before_buyer_approval",
+      "status": 200,
+      "state": "awaiting_buyer",
+      "message": "PayPal has not recorded your approval yet."
+    },
+    {
+      "name": "return_with_wrong_order_id",
+      "status": 400,
+      "error": "ORDER_MISMATCH"
+    },
+    {
+      "name": "customer_approved_scope",
+      "quote": "Air filter (you called back)",
+      "version": 1,
+      "status": 200,
+      "total_cents": 2500
+    },
+    {
+      "name": "checkout_double_click",
+      "statuses": [
+        200,
+        200
+      ],
+      "third_call_same_link": true,
+      "order_id": "7LS387331U1672940",
+      "approve_host": "www.sandbox.paypal.com",
+      "payment_label": "Waiting for PayPal approval"
+    },
+    {
+      "name": "return_before_buyer_approval",
+      "status": 200,
+      "state": "awaiting_buyer",
+      "message": "PayPal has not recorded your approval yet."
+    },
+    {
+      "name": "return_with_wrong_order_id",
+      "status": 400,
+      "error": "ORDER_MISMATCH"
+    },
+    {
+      "name": "paypal_request_id_replay",
+      "request_id": "ra-pay_86d6052d5b866d5d-create_order-1",
+      "original_order": "9NU74254N9051224M",
+      "replay_order": "9NU74254N9051224M",
+      "same_order": true,
+      "http_status": 200
+    },
+    {
+      "name": "shop_check_with_paypal_before_buyer_approval",
+      "status": 200,
+      "state": "awaiting_buyer"
+    }
+  ],
+  "orders_created_by_this_run": 3
+}

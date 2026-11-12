@@ -35,9 +35,12 @@ function render() {
   if (pending.length) {
     const first = pending[0];
     main.append(h('h1', {}, first.kind === 'addon' ? 'Your mechanic found more work. Choose what to do today.' : 'Review your repair quote and approve the work.'));
+  } else if (data.quotes.some((q) => q.approval?.decision === 'approved' && q.approval.status !== 'cancelled' && (!q.payment || ['not_started', 'awaiting_buyer'].includes(q.payment.state)))) {
+    main.append(h('h1', {}, 'Finish your approval in PayPal'));
+    main.append(h('p', { class: 'lead' }, 'You approved the work below. PayPal still needs your OK to hold the amount. You are not charged until the shop finishes the work.'));
   } else {
     main.append(h('h1', {}, 'Your repair choices'));
-    main.append(h('p', { class: 'lead' }, 'Nothing needs your answer right now. Charges and released holds show below.'));
+    main.append(h('p', { class: 'lead' }, 'Nothing needs your answer right now. Each item shows whether it was charged, is held, or was released.'));
   }
   if (flash) {
     main.append(h('div', { class: `notice ${flash.tone || ''}`, role: 'status' }, flash.text));
