@@ -1,0 +1,13 @@
+{
+  "archive": "Repair_Approval_Source_Code.zip",
+  "source_commit": "ee47cd38558f86b9cf99d0f24410d1320d362719",
+  "sha256": "1e8c2fa32d99c10d668f7ce01589086f9b4db469c5659c2bd38d6d08e0207656",
+  "npm_ci": "PASS (0 dependencies)",
+  "local_tests": {
+    "tests": 20,
+    "pass": 20,
+    "fail": 0
+  },
+  "startup_health": "PASS; separate port; no embedded credentials; AI explicitly off",
+  "not_claimed": "No second live PayPal/AI run was made from the credential-free restored archive."
+}

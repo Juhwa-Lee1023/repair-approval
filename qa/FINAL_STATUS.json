@@ -1,7 +1,7 @@
 {
-  "status": "REVIEWED_REPOSITORY_AND_VIDEO_UPLOADED_DEVPOST_DRAFT_IN_PROGRESS",
+  "status": "REVIEWED_UPLOADED_DEVPOST_DRAFT_READY_NOT_SUBMITTED",
   "submission": "NOT_SUBMITTED",
-  "written_at_kst": "2026-11-13T04:14:43.703235+09:00",
+  "written_at_kst": "2026-11-13T04:30:17.598348+09:00",
   "deadline_kst": "2026-11-13T05:00+0900",
   "local_git": {
     "initialized": true,
@@ -11,7 +11,10 @@
     "path": "submission/Repair_Approval_Source_Code.zip",
     "scope": "Public source, documentation, screenshots and QA. Credentials, local databases, raw recordings and tool environments are excluded.",
     "artifact_manifest": "Release manifest and SHA256SUMS are supplied alongside the archive.",
-    "clean_restore": "Post-packaging result is recorded separately in qa/release-restore.json."
+    "clean_restore": "PASS: qa/release-restore.json; metadata file added after the packaged source commit.",
+    "sha256": "1e8c2fa32d99c10d668f7ce01589086f9b4db469c5659c2bd38d6d08e0207656",
+    "source_commit": "ee47cd38558f86b9cf99d0f24410d1320d362719",
+    "bytes": 247742
   },
   "run_command": "cd app && npm run reset && npm start   # http://127.0.0.1:8879",
   "tests": {
@@ -80,7 +83,20 @@
   "hosted_demo_url": null,
   "devpost_submission_url": null,
   "remaining_user_actions": [
-    "Final Devpost submission is not authorized by this upload workflow."
+    "Review the saved Devpost draft. Final contest submission and final terms are not executed in this upload-only workflow."
   ],
-  "devpost_draft_url": "https://devpost.com/submit-to/31302-paypal-ai-hackathon/manage/submissions/1299432-repair-approval/project-overview"
+  "devpost_draft_url": "https://devpost.com/submit-to/31302-paypal-ai-hackathon/manage/submissions/1299432-repair-approval/finalization",
+  "devpost_preview_url": "https://devpost.com/software/repair-approval",
+  "devpost_saved": {
+    "steps": "4/5",
+    "story": true,
+    "gallery_images": 3,
+    "thumbnail": true,
+    "source_zip": "Repair_Approval_Source_Code.zip",
+    "video_url": "https://youtu.be/BEhhXPu255o",
+    "mandatory_additional_fields": true,
+    "final_terms_checked": false,
+    "final_submit_clicked": false
+  },
+  "release_url": "https://github.com/Juhwa-Lee1023/repair-approval/releases/tag/v0.1.0"
 }
