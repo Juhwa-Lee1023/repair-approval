@@ -1,0 +1,20 @@
+{
+  "name": "repair-approval",
+  "version": "0.1.0",
+  "description": "Customers approve exact repair items; PayPal Sandbox holds that amount until the shop finishes the work.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node scripts/seed.js",
+    "reset": "node scripts/reset.js",
+    "test": "node --test --test-reporter=spec test/*.test.js",
+    "check-config": "node scripts/check-config.js",
+    "ai-trials": "node scripts/ai-trials.js",
+    "sandbox-check": "node scripts/sandbox-check.js"
+  }
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Shop sign-in · Repair approval</title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <script type="module" src="/assets/login.js"></script>
+</head>
+<body class="shop">
+  <header class="bar"><div class="bar-inner"><span class="shop-name">Repair approval · Shop</span><span class="sandbox">Sandbox</span></div></header>
+  <main id="main" class="page narrow">
+    <h1>Shop sign-in</h1>
+    <p>Use the shop key printed by <code>npm run seed</code>. Customers never need this key.</p>
+    <form id="login" class="stack">
+      <label for="key">Shop key</label>
+      <input id="key" name="key" type="password" autocomplete="current-password" required>
+      <button class="primary" type="submit">Sign in</button>
+      <p class="error" id="error" role="alert" hidden></p>
+    </form>
+  </main>
+</body>
+</html>

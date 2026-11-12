@@ -1,0 +1,254 @@
+{
+  "written_at_kst": "2026-11-13T02:39:38+09:00",
+  "method": "Files read directly with relative paths inside this directory. Images viewed as images. Raw API responses summarised by structure only (no payer/payee fields printed). private/paypal-sandbox.env NOT read.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256_12": "32f893dead4a",
+      "depth": "full"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256_12": "689b144b1d6b",
+      "depth": "full"
+    },
+    {
+      "path": "MASTER_DEVELOPMENT_TASK.md",
+      "sha256_12": "8df1b632288e",
+      "depth": "full"
+    },
+    {
+      "path": "reference/rules/official-requirements.md",
+      "sha256_12": "def06f17d18b",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/실제Sandbox검증결과.md",
+      "sha256_12": "14f75f0ec4a5",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/actual-sandbox-results.json",
+      "sha256_12": "6c1237df3037",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/requests.jsonl",
+      "sha256_12": "f505eb269f55",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/probe.py",
+      "sha256_12": "e2b60521945f",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/capture-minimal-response-failure.json",
+      "sha256_12": "2c644c55c79d",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/probe-regression.txt",
+      "sha256_12": "1a89ffc6aee0",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/probe-regression.json",
+      "sha256_12": "5a7f6763c4be",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/base-customer-line-items.jpg",
+      "sha256_12": "d0ccedf6e0b0",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/addon-customer-line-items.jpg",
+      "sha256_12": "8bfa87ab3a1f",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/cancel-customer-line-items.jpg",
+      "sha256_12": "ec12a925ff69",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/base-customer-line-items.txt",
+      "sha256_12": "200b6fe3faf7",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/addon-customer-line-items.txt",
+      "sha256_12": "18062d217dc4",
+      "depth": "full"
+    },
+    {
+      "path": "reference/evidence/cancel-customer-line-items.txt",
+      "sha256_12": "b5524a2ae244",
+      "depth": "full"
+    },
+    {
+      "path": "reference/reviews/opus-final.md",
+      "sha256_12": "854158a7e422",
+      "depth": "full"
+    },
+    {
+      "path": "reference/reviews/fable-final.md",
+      "sha256_12": "108dd8530e72",
+      "depth": "full"
+    },
+    {
+      "path": "reference/skills/korean-proposal-writing/SKILL.md",
+      "sha256_12": "789e5a3cc473",
+      "depth": "full"
+    },
+    {
+      "path": "reference/skills/korean-proposal-writing/references/live-ai-demo-verification.md",
+      "sha256_12": "10c710d6b3db",
+      "depth": "full"
+    },
+    {
+      "path": "reference/skills/korean-proposal-writing/references/copy-and-ai-output.md",
+      "sha256_12": "fd35251655b7",
+      "depth": "full"
+    },
+    {
+      "path": "reference/skills/korean-proposal-writing/references/layout-and-delivery.md",
+      "sha256_12": "3cc3b3c86d6b",
+      "depth": "full"
+    },
+    {
+      "path": "reference/skills/korean-proposal-writing/references/structure-and-story.md",
+      "sha256_12": "954d75e92ec6",
+      "depth": "headings + skim"
+    },
+    {
+      "path": "reference/skills/korean-proposal-writing/references/wording-examples.md",
+      "sha256_12": "41b9d3e5a9d0",
+      "depth": "headings + skim"
+    },
+    {
+      "path": "reference/skills/korean-proposal-writing/references/evidence-and-technical-value.md",
+      "sha256_12": "688b10ff497f",
+      "depth": "headings + skim"
+    },
+    {
+      "path": "reference/skills/korean-natural-writing/SKILL.md",
+      "sha256_12": "00f21622785c",
+      "depth": "headings + skim"
+    }
+  ],
+  "raw_api_responses": [
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499357981888000.json",
+      "sha256_12": "043f09e93818"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499522889687000.json",
+      "sha256_12": "bae62667bdbd"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499524609878000.json",
+      "sha256_12": "a3cb69217932"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499540208287000.json",
+      "sha256_12": "44b0d8a382c8"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499542540469000.json",
+      "sha256_12": "52982b8ec7bf"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499593006507000.json",
+      "sha256_12": "126499faf6e0"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499593494866000.json",
+      "sha256_12": "c8727b992571"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499600920262000.json",
+      "sha256_12": "7f49838f6ca8"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499667809472000.json",
+      "sha256_12": "8a0e0241e79b"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499669549986000.json",
+      "sha256_12": "e5f5e45e04a5"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499688741055000.json",
+      "sha256_12": "b4f1ccd5f378"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499691659894000.json",
+      "sha256_12": "f979507e7064"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499706510529000.json",
+      "sha256_12": "04565fc02d7d"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499707330550000.json",
+      "sha256_12": "18bf663c0a3c"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499716921233000.json",
+      "sha256_12": "0ad73b0e13d8"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499779290265000.json",
+      "sha256_12": "3cc8869c9755"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499781395062000.json",
+      "sha256_12": "d78b82be8cd0"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499790450381000.json",
+      "sha256_12": "c5115ea48243"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499791759360000.json",
+      "sha256_12": "036d9c847627"
+    },
+    {
+      "path": "reference/evidence-private/raw-api-responses/response-1794499792466845000.json",
+      "sha256_12": "6c46193282a8"
+    }
+  ],
+  "observations": {
+    "three_cases": {
+      "base": "order 9W617404SA497064L, items Front brake pads 300.00 + Labor - brake pad replacement 120.00, qty 1 each, total 420.00; authorize CREATED 2EW06525V43333841; capture 11N48879VB407822M COMPLETED",
+      "addon": "order 7LW99203JC999730T, Upper radiator hose 38.00 + Labor - hose replacement (0.5h) 65.00, total 103.00; authorization 7RF396421S705910K; capture 9AH41168XG2816112 COMPLETED final_capture=true",
+      "cancel": "order 4WU00504YJ9406212, Air filter - cancellation test 25.00 qty 1; buyer approved, authorize CREATED 9TP190692X3263024, then void -> GET VOIDED. Capture never called. This was approved/held then cancelled, not an initial refusal."
+    },
+    "collapsed_item_details": "actual-sandbox-results.json buyer_item_ui.default_item_display=COLLAPSED_EXPAND_REQUIRED; JPGs/TXT show the 주문 세부정보 (order details) section only after it was expanded (AX tree marks the button as expanded). Item list sits below payment method selection.",
+    "amount_change_note": "All three PayPal review screens show above the 주문 검토 button: \"이 거래가 완료되면 배송비, 세금 및 구매 업데이트를 반영하기 위해 구매 금액이 변경될 수 있습니다.\" (purchase amount may change after this transaction). So the PayPal screen alone does not prove an immutable scope or amount.",
+    "checkout_balances": "Checkout available balance 5000.00 before base, 4580.00 before addon, 4477.00 before cancel. Developer account edit page reportedly still showed 5000 -> not a ledger.",
+    "capture_minimal_response": "response-1794499542540469000.json (capture POST, 201) contains only id, links, status=COMPLETED - no amount, no final_capture. Probe crashed with KeyError after saving capture ID; GET /v2/payments/captures/11N48879VB407822M returned amount 420.00 final_capture=true. No repeat capture.",
+    "authorization_expiry": "authorization expiration_time = create + 29 days (e.g. created 2026-11-12T16:05Z, expires 2026-12-11T16:05:23Z). Auth GET links include reauthorize, but reauthorize was not exercised.",
+    "orders_completed_after_authorize": "POST authorize returns order status COMPLETED while authorization status is CREATED -> order COMPLETED does not mean charged.",
+    "cancel_url_behavior": "cancel link value 127.0.0.1:8879/cancel?token=<orderId>; return_url similarly carries token=<orderId>.",
+    "probe_payload": "intent AUTHORIZE, one purchase_unit with reference_id, description, items[name, sku, quantity, unit_amount], amount with breakdown.item_total, payment_source.paypal.experience_context{brand_name, shipping_preference NO_SHIPPING, return_url, cancel_url}; headers PayPal-Request-Id (sha256 run|case|action), Prefer return=representation; host fixed to api-m.sandbox.paypal.com; transport error -> no auto retry.",
+    "requests_log": "31 requests: 26x200, 5x201; capture POSTs 2, void POST 1.",
+    "reviews_applied": [
+      "two state axes (scope vs payment)",
+      "no Funded/guaranteed language",
+      "server enforces capture == authorized amount; not PayPal",
+      "approved-then-cancelled void; initial refusal = no hold, no void",
+      "scope approved but PayPal closed state",
+      "fixed templates for money questions",
+      "PayPal-Request-Id per logical mutation"
+    ],
+    "reviews_rejected_or_corrected": [
+      "Fable: \"structurally impossible to charge without approval\" - rejected (PayPal allows capture above auth within limits; server rule enforces)",
+      "Fable video order \"customer declines -> void\" - rejected",
+      "Opus: show honor period date as recommended deadline - softened: store and show remote expiry only, 3-day honor period as guidance in docs",
+      "Fable: \"README: reauthorization required after 3 days\" - rejected as an absolute claim"
+    ]
+  }
+}

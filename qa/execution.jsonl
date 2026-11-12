@@ -1,0 +1,4 @@
+{"at":"2026-11-13T02:38:44+0900","step":"start","note":"read AGENTS.md, CLAUDE.md, MASTER_DEVELOPMENT_TASK.md, official-requirements.md"}
+{"at":"2026-11-13T02:41:54+0900","step":"evidence_read","note":"qa/EVIDENCE_READ.json written: 27 files + 20 raw responses (structure only), 3 JPGs viewed"}
+{"at":"2026-11-13T02:41:54+0900","step":"toolchain","note":"node v24.19.0 (node:sqlite built-in), claude CLI 2.1.308 works with --tools '' (1 probe call, sonnet-5-5, 5.1s, list cost 0.002394 USD). No browser connector in tool list -> buyer PayPal approval + recording pending for main agent."}
+{"at":"2026-11-13T02:41:54+0900","step":"design","note":"Zero-dependency Node 24 server + vanilla JS UI + SQLite. Redirect checkout via payer-action link (no client SDK, no client ID sent to browser)."}
