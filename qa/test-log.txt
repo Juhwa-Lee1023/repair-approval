@@ -1,0 +1,29 @@
+✔ money helpers use integer cents (1.651375ms)
+✔ base job: approve, hold, mark done, charge once; minimal capture response is verified by GET (91.247875ms)
+✔ price tampering, unknown items, quantity changes and total mismatch are rejected (42.197708ms)
+✔ add-on partial selection creates a separate order for exactly the selected items (57.00425ms)
+✔ stale quote: edits clear the old choice, old hashes and old suggestions cannot approve, abandoned order is never authorized (49.90175ms)
+✔ quote with an active hold cannot be edited (66.935041ms)
+✔ tokens: cross-job, expired, invalid, shop privilege and CSRF header (58.25675ms)
+✔ duplicate PayPal return and concurrent capture clicks never create a second authorization or capture (174.312209ms)
+✔ capture timeout after PayPal charged: state is unknown, button blocked, reconcile finds the one capture (177.231ms)
+✔ capture timeout before PayPal received it: reconcile replays with the same PayPal-Request-Id once (99.454459ms)
+✔ pending capture is not shown as paid until PayPal completes it (66.733625ms)
+✔ initial refusal creates no hold and no void; approved-then-cancelled work is voided once (67.334375ms)
+✔ customer closes PayPal after approving scope: saved choice, nothing held, shop cancel does not call void (52.713917ms)
+✔ order that does not match the approved amount or items is not authorized (34.764458ms)
+✔ authorize timeout: state needs_check, reconcile adopts the existing authorization without a second one (40.996958ms)
+✔ assistant output is checked: unknown items and invented amounts are rejected, payment questions use fixed text, no approval is created (85.706208ms)
+✔ secrets never appear in API responses, pages or the PayPal request log (76.31025ms)
+✔ state survives restart; a request interrupted by a crash becomes "check with PayPal", not a resend (60.028416ms)
+✔ sandbox host is fixed and non-allowed PayPal paths are refused (1.301875ms)
+✔ service refuses to build an order whose items no longer sum to the approved total (16.677375ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1439.983667
+exit=0

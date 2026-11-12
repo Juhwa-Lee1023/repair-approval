@@ -1,0 +1,181 @@
+{
+  "written_at_kst": "2026-11-13T03:04:58+09:00",
+  "local_tests": {
+    "kind": "MOCK PayPal transport + MOCK assistant (test/helpers.js)",
+    "command": "cd app && npm test",
+    "tests": 20,
+    "pass": 20,
+    "fail": 0,
+    "log": "qa/test-log.txt",
+    "covers": [
+      "price tampering",
+      "unknown item ids",
+      "quantity change",
+      "duplicate items",
+      "total mismatch",
+      "stale quote hash",
+      "stale edit",
+      "stale AI suggestion",
+      "abandoned order never authorized after edit",
+      "edit blocked while held",
+      "cross-job token",
+      "expired token",
+      "invalid token",
+      "shop-only routes",
+      "CSRF header",
+      "duplicate PayPal return",
+      "concurrent capture clicks",
+      "double-click checkout",
+      "capture lost response -> reconcile finds single capture",
+      "capture dropped -> replay with same PayPal-Request-Id",
+      "authorize lost response -> reconcile adopts existing authorization",
+      "pending capture not shown as paid",
+      "initial decline: zero PayPal calls, no void",
+      "approved-then-cancelled: void once, no capture",
+      "captured hold cannot be voided",
+      "buyer closes PayPal: nothing held, cancel without void",
+      "order amount mismatch blocks authorize",
+      "AI unknown id / invented amount rejected; payment question fixed text; AI never approves or calls PayPal",
+      "secret leakage in API/pages/log",
+      "restart persistence + crash-interrupted operation becomes needs_check",
+      "sandbox host fixed + path allow-list"
+    ]
+  },
+  "real_ai": {
+    "provider": "local Claude Code CLI, --tools \"\" (no new API key)",
+    "observed_models": [
+      "claude-sonnet-5-5"
+    ],
+    "runs": [
+      {
+        "run_id": "2026-11-12T18:00:05.271Z",
+        "calls": 19,
+        "passed": 15,
+        "cost_usd_list_price": 0.1059,
+        "median_latency_ms": 5379,
+        "failures": [
+          "conditional approval",
+          "mixed choice + negotiation",
+          "negotiation",
+          "prompt injection"
+        ]
+      },
+      {
+        "run_id": "2026-11-12T18:01:09.123Z",
+        "calls": 19,
+        "passed": 19,
+        "cost_usd_list_price": 0.1043,
+        "median_latency_ms": 4663,
+        "failures": []
+      }
+    ],
+    "run1_failure_cause": "4 correct handoffs echoed the customer-proposed dollar amount; validator rejected (AI_OUTPUT_AMOUNT_NOT_ON_QUOTE). Prompt revised; validator unchanged.",
+    "run2_note": "Same fixed expectations, revised prompt. 19/19.",
+    "app_http_integration": "qa/ai-http-integration.json: 2 real calls through /api/c/quotes/:id/ask (selection 103.00; payment question -> fixed server text)",
+    "probe_call": "1 CLI probe call at start (0.002394 USD list price)",
+    "not_claimed": "No user-outcome validation; trials check output handling only."
+  },
+  "real_sandbox": {
+    "through_app_http": true,
+    "orders_created": 3,
+    "order_ids": [
+      "9NU74254N9051224M",
+      "2X199308LE922282L",
+      "7LS387331U1672940"
+    ],
+    "results": {
+      "customer_approved_scope#0": {
+        "quote": "Front brake pads",
+        "version": 1,
+        "status": 200,
+        "total_cents": 42000
+      },
+      "checkout_double_click#1": {
+        "statuses": [
+          200,
+          200
+        ],
+        "third_call_same_link": true,
+        "order_id": "9NU74254N9051224M",
+        "approve_host": "www.sandbox.paypal.com",
+        "payment_label": "Waiting for PayPal approval"
+      },
+      "return_before_buyer_approval#2": {
+        "status": 200,
+        "state": "awaiting_buyer",
+        "message": "PayPal has not recorded your approval yet."
+      },
+      "return_with_wrong_order_id#3": {
+        "status": 400,
+        "error": "ORDER_MISMATCH"
+      },
+      "customer_approved_scope#4": {
+        "quote": "Found during the brake job",
+        "version": 1,
+        "status": 200,
+        "total_cents": 10300
+      },
+      "checkout_double_click#5": {
+        "statuses": [
+          200,
+          200
+        ],
+        "third_call_same_link": true,
+        "order_id": "2X199308LE922282L",
+        "approve_host": "www.sandbox.paypal.com",
+        "payment_label": "Waiting for PayPal approval"
+      },
+      "return_before_buyer_approval#6": {
+        "status": 200,
+        "state": "awaiting_buyer",
+        "message": "PayPal has not recorded your approval yet."
+      },
+      "return_with_wrong_order_id#7": {
+        "status": 400,
+        "error": "ORDER_MISMATCH"
+      },
+      "customer_approved_scope#8": {
+        "quote": "Air filter (you called back)",
+        "version": 1,
+        "status": 200,
+        "total_cents": 2500
+      },
+      "checkout_double_click#9": {
+        "statuses": [
+          200,
+          200
+        ],
+        "third_call_same_link": true,
+        "order_id": "7LS387331U1672940",
+        "approve_host": "www.sandbox.paypal.com",
+        "payment_label": "Waiting for PayPal approval"
+      },
+      "return_before_buyer_approval#10": {
+        "status": 200,
+        "state": "awaiting_buyer",
+        "message": "PayPal has not recorded your approval yet."
+      },
+      "return_with_wrong_order_id#11": {
+        "status": 400,
+        "error": "ORDER_MISMATCH"
+      },
+      "paypal_request_id_replay#12": {
+        "request_id": "ra-pay_86d6052d5b866d5d-create_order-1",
+        "original_order": "9NU74254N9051224M",
+        "replay_order": "9NU74254N9051224M",
+        "same_order": true,
+        "http_status": 200
+      },
+      "shop_check_with_paypal_before_buyer_approval#13": {
+        "status": 200,
+        "state": "awaiting_buyer"
+      }
+    },
+    "request_log": "qa/sandbox-requests.jsonl (redacted: no tokens, no payer data)",
+    "buyer_approval_authorize_capture_void_via_app": "PENDING_BROWSER (no approved browser connector in this session)",
+    "new_orders_budget_used": "3 of 15"
+  },
+  "pre_app_sandbox_evidence": "reference evidence: 420 capture, 103 capture, 25 void, minimal capture response (see qa/EVIDENCE_READ.json)",
+  "browser_ui_check": "NOT_RUN (no approved browser connector). JS syntax checked with node --check only.",
+  "video": "NOT_RECORDED"
+}
