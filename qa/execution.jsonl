@@ -5,3 +5,4 @@
 {"at":"2026-11-13T02:59:23+0900","step":"core_app","note":"server+UI+20 local tests (mock PayPal, mock AI) passing; first commit"}
 {"at":"2026-11-13T03:02:28+0900","step":"real_checks","note":"AI trials run1 15/19 (4 echo-amount rejections), prompt fix, run2 19/19; 2 real AI calls via app HTTP; real Sandbox: 3 orders via app HTTP, request-id replay same order"}
 {"at":"2026-11-13T03:05:19+0900","step":"zip_restore","note":"git archive ZIP extracted to clean dir: npm ci ok, npm test 20/20, seed ok, server boots without creds (paypal_configured false), pages 200"}
+{"at":"2026-11-13T03:06:25+0900","step":"final","note":"qa/FINAL_STATUS.json + handoff/FINAL_REPORT.md written. NOT_SUBMITTED. Browser E2E + video pending for main agent."}

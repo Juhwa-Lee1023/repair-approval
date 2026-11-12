@@ -1,0 +1,54 @@
+{
+  "status": "LOCAL_DELIVERABLES_READY_NOT_SUBMITTED",
+  "submission": "NOT_SUBMITTED",
+  "written_at_kst": "2026-11-13T03:06+0900",
+  "deadline_kst": "2026-11-13T05:00+0900",
+  "local_git": {
+    "initialized": true,
+    "zip_built_from_commit": "c36b3c4",
+    "this_file_added_in_a_later_metadata_commit": true,
+    "pushed": false,
+    "commit_author_name_note": "Local commits use author name 'Juhwa Lee', inferred from the account email. Confirm or amend before publishing."
+  },
+  "source_zip": {
+    "path": "submission/repair-approval-source.zip",
+    "sha256": "7a1de2e7e604ed62d16c8a0928c73976efcddc9d24aa9354e68e6561afcde5ba",
+    "files": 51,
+    "excludes": ["private/", "reference/", "handoff/", "app/var/ (database, shop key, logs)", "AGENTS.md", "CLAUDE.md", "MASTER_DEVELOPMENT_TASK.md", ".env files"],
+    "secret_scan": "0 hits for PayPal client ID, secret, Basic auth string, shop key and customer token across 42 tracked files (values compared in-process, never printed)",
+    "clean_restore": "PASS: extracted to empty dir, npm ci, npm test 20/20, seed, server boot without credentials"
+  },
+  "run_command": "cd app && npm run reset && npm start   # http://127.0.0.1:8879",
+  "tests": {
+    "local_mock": { "tests": 20, "pass": 20, "fail": 0, "log": "qa/test-log.txt", "note": "PayPal and assistant are mocks in these tests" },
+    "real_ai_trials": [
+      { "run": 1, "calls": 19, "pass": 15, "failures": "4 correct handoffs repeated the customer's dollar figure; strict validator rejected them" },
+      { "run": 2, "calls": 19, "pass": 19, "change": "prompt tells assistant not to repeat customer-proposed amounts; validator unchanged" }
+    ],
+    "real_ai_via_app_http": { "calls": 2, "file": "qa/ai-http-integration.json" },
+    "real_ai_total_cli_calls": 41,
+    "real_ai_cost_usd_list_price": "about 0.22 total as reported by the CLI; runs on the existing local Claude login, no new API key",
+    "real_sandbox_via_app_http": {
+      "orders_created": 3,
+      "order_ids": ["9NU74254N9051224M", "2X199308LE922282L", "7LS387331U1672940"],
+      "amounts": ["420.00", "103.00", "25.00"],
+      "verified": ["exact line items and custom_id in PayPal order", "double-click checkout -> one order", "same PayPal-Request-Id replay -> same order id", "return before buyer approval -> no authorize", "wrong order id on return -> refused", "shop Check with PayPal before approval -> still awaiting"],
+      "file": "qa/sandbox-check.json",
+      "request_log": "qa/sandbox-requests.jsonl"
+    },
+    "real_sandbox_buyer_approval_authorize_capture_void_via_app": "PENDING_BROWSER",
+    "sandbox_order_budget": "3 of 15 new orders used"
+  },
+  "browser_ui_verification": "NOT_RUN: no approved browser connector in this session; JS syntax checked only",
+  "video": { "status": "NOT_RECORDED", "youtube_url": null },
+  "public_repo_url": null,
+  "hosted_demo_url": null,
+  "devpost_submission_url": null,
+  "remaining_user_actions": [
+    "Run the browser walkthrough in docs/TESTING.md (buyer approves in PayPal Sandbox; shop charges 103/420 and releases 25) and check both screens at phone and desktop widths",
+    "Record the under-3-minute demo per docs/DEMO_SCRIPT.md and upload to YouTube (public)",
+    "Confirm license holder name and git author, then create the public repository and push",
+    "Confirm contest eligibility and rules consent, then submit on Devpost with repo URL, video URL, story (docs/PROJECT_STORY.md) and disclosure (docs/AI_AND_TOOLS_DISCLOSURE.md)",
+    "Decide how judges get Sandbox access (their own Sandbox app per README, or a hosted demo); never publish the private env file"
+  ]
+}
