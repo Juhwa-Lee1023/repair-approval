@@ -17,7 +17,7 @@ Open the printed `http://127.0.0.1:8879/shop/login#key=…` link. You are now on
 
 1. **Shop:** quote 1, *Front brake pads* ($420.00), is already sent. On quote 2, *Found during the brake job*, press **Send to customer**.
 2. **Shop:** press **Create customer link**, then **Open customer view**. Use a phone-sized window if you like.
-3. **Customer:** quote 2 is first. Type `Hose only. Leave the filter for next time.` and press **Ask**. The assistant suggests the hose and its labor ($103.00). Press **Select these items**, then **Review $103.00 of work**.
+3. **Customer:** scroll to quote 2, *Found during the brake job*. Type `Hose only. Leave the filter for next time.` and press **Ask**. The assistant suggests the hose and its labor ($103.00). Press **Select these items**, then **Review $103.00 of work**.
 4. **Customer:** check the list and the "Not included: Engine air filter" line, then press **Approve $103.00 and continue to PayPal**.
 5. **PayPal (Sandbox):** sign in with your Sandbox buyer account. Open *Order details* to see the two items. Approve.
 6. **Customer:** you return to the app. It reads "PayPal is holding $103.00. You are not charged until the shop finishes the work."

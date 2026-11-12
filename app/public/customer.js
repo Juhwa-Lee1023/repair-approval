@@ -36,11 +36,11 @@ function render() {
     const first = pending[0];
     main.append(h('h1', {}, first.kind === 'addon' ? 'Your mechanic found more work. Choose what to do today.' : 'Review your repair quote and approve the work.'));
   } else if (data.quotes.some((q) => q.approval?.decision === 'approved' && q.approval.status !== 'cancelled' && (!q.payment || ['not_started', 'awaiting_buyer'].includes(q.payment.state)))) {
-    main.append(h('h1', {}, 'Finish your approval in PayPal'));
-    main.append(h('p', { class: 'lead' }, 'You approved the work below. PayPal still needs your OK to hold the amount. You are not charged until the shop finishes the work.'));
+    main.append(h('h1', {}, 'Finish the remaining PayPal approvals'));
+    main.append(h('p', { class: 'lead' }, 'For each quote marked “Waiting for PayPal”, continue below to approve the hold. The shop charges after that work is done.'));
   } else {
     main.append(h('h1', {}, 'Your repair choices'));
-    main.append(h('p', { class: 'lead' }, 'Nothing needs your answer right now. Each item shows whether it was charged, is held, or was released.'));
+    main.append(h('p', { class: 'lead' }, 'Check your approved items and the payment status for each quote below.'));
   }
   if (flash) {
     main.append(h('div', { class: `notice ${flash.tone || ''}`, role: 'status' }, flash.text));
@@ -105,9 +105,9 @@ function askPanel(q, st) {
     render();
     $(`#ask-${q.id}`)?.focus();
   } },
-    h('label', { for: `ask-${q.id}` }, 'Ask a question, or tell us what you want in your own words'),
+    h('label', { for: `ask-${q.id}` }, 'Ask about the quote, or say what you want done'),
     h('div', { class: 'ask-row' }, ta, btn),
-    h('p', { class: 'hint' }, 'Answers use only this quote and the mechanic’s note. The assistant cannot approve work or change prices; questions it cannot answer go to the shop.'));
+    h('p', { class: 'hint' }, 'AI answers from this quote and your mechanic’s note. Check any suggested items before approving. Other questions go to the shop.'));
   const log = h('ol', { class: 'chat', 'aria-label': 'Questions and answers' }, st.chat.map((m) => chatLine(q, st, m)));
   return h('div', { class: 'ask-wrap' }, st.chat.length ? log : null, form);
 }
@@ -117,7 +117,7 @@ function chatLine(q, st, m) {
   if (m.who === 'error') return h('li', { class: 'err' }, h('span', { class: 'who' }, 'Not answered'), m.text);
   const r = m.r;
   const names = r.selected_item_ids.map((id) => q.items.find((i) => i.id === id)?.name).filter(Boolean);
-  const label = r.kind === 'handoff' ? 'Sent to the shop' : r.fixed_text ? 'Payment status' : 'Assistant';
+  const label = r.kind === 'handoff' ? 'Sent to the shop' : r.fixed_text ? 'Payment status' : 'AI assistant';
   return h('li', { class: `bot ${r.kind}` }, h('span', { class: 'who' }, label), r.answer,
     r.kind === 'selection' && names.length ? h('div', { class: 'suggest' },
       h('span', {}, `Suggested: ${names.join(', ')} · ${usd(r.selection_total_cents)}`),

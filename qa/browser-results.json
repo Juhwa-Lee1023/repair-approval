@@ -1,0 +1,12 @@
+{
+  "environment": "PayPal Sandbox only; fictional repair order RO-1042",
+  "verified_at_kst": "2026-11-13T03:33:00+09:00",
+  "browser": "Chrome, real customer and shop UI",
+  "cases": [
+    {"amount": "103.00", "currency": "USD", "order": "2X199308LE922282L", "authorization": "37T10613EK356404X", "capture": "85V16202N03514737", "result": "COMPLETED", "items": "hose and labor; filter excluded"},
+    {"amount": "420.00", "currency": "USD", "order": "9NU74254N9051224M", "authorization": "75545591FK2571616", "capture": "0MY69093338311152", "result": "COMPLETED"},
+    {"amount": "25.00", "currency": "USD", "order": "7LS387331U1672940", "authorization": "85M35384J63788404", "result": "VOIDED", "capture": null}
+  ],
+  "final_customer_screen": "420 and 103 charged; 25 hold released, not charged",
+  "private_evidence": "Local qa/browser contains screenshots and AX snapshots and is not published because it includes access URLs."
+}

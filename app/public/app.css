@@ -154,3 +154,6 @@ table { border-collapse: collapse; width: 100%; }
   .lines.edit tr { display: grid; grid-template-columns: 1fr 1fr; gap: .3rem; padding: .5rem 0; border-bottom: 1px solid var(--rule); }
   .lines.edit td { border: 0; padding: 0; }
 }
+
+.cancel-confirm { margin-top: 1rem; margin-bottom: 0; }
+.cancel-confirm h3 { margin: 0; font-size: 1.05rem; }

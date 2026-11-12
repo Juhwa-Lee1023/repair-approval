@@ -18,3 +18,10 @@ app/var/
 AGENTS.md
 CLAUDE.md
 MASTER_DEVELOPMENT_TASK.md
+
+app/var*/
+qa/browser/
+video/raw/
+submission/
+
+video/

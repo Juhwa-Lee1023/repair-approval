@@ -1,39 +1,43 @@
-# Repair Approval — project story
+# Repair Approval
 
 ## Inspiration
 
-A car is on the lift for front brake pads. The mechanic notices a cracked radiator hose and a dirty air filter, and texts the customer. The customer replies, "Hose only. Leave the filter for next time." A week later, nobody is sure whether the filter was included or what the new total was. Small independent shops without a shop-management suite handle this by phone and text, and the record of what was agreed is whatever is in the message thread.
+“Hose only. Leave the filter for next time.”
+
+A mechanic finds extra work while replacing brake pads. A short text reply can settle the conversation, but the shop still needs an exact list of approved items and a payment for that list. Repair Approval puts those decisions on one page, with a separate PayPal order for each additional quote.
 
 ## What it does
 
-The shop writes a quote: items, quantities, prices, and a short note in the mechanic's words explaining why. The customer opens a link on their phone, reads the note, and ticks the items to do now. They can type a question or an answer in plain words. The assistant answers from the quote only, or turns "hose only" into a suggested selection the customer can apply with one tap.
+The mechanic sends an itemized quote and a note explaining the work. The customer opens a link, reads the note, and chooses what to do now. They can also ask the AI a question or write a reply such as “hose only.” The AI suggests the hose and its labor; the customer checks the selection before approving it.
 
-The customer reviews the exact list and total, presses Approve, and approves a PayPal hold for that amount. Nothing is charged yet. When the work is done, the shop presses Charge and the server captures exactly the approved amount. If approved work is cancelled before it is done, the shop releases the hold instead.
+In the demo, the extra work totals $128. The customer leaves out a $25 filter and approves $103 for the hose and labor. PayPal holds $103. After doing that work, the shop charges the same amount. A separate $25 request shows the other outcome: the shop cancels the work and releases the hold without charging it.
 
-Each add-on is its own quote version and its own PayPal order. The shop screen shows two statuses side by side: whether the **work** is approved (and which version), and where the **payment** stands: waiting for PayPal, held but not charged, charged, or released.
+The shop can see **what work was approved** and **whether money is held or charged** side by side. Changing a quote creates a new version that needs a new customer decision. Discounts and questions that the mechanic’s note cannot answer go back to the shop.
 
-## How it was built
+## How I built it
 
-- **Server:** Node.js with no npm dependencies. SQLite (`node:sqlite`) stores jobs, quote versions, approvals, payments, every PayPal operation and an event history.
-- **PayPal:** Orders v2 with `intent: AUTHORIZE`, line items and `custom_id` set to the app's approval ID. Payments v2 for capture (`final_capture: true`), void and GET. Every mutation carries a stable `PayPal-Request-Id` and is reserved in the database before it is sent.
-- **Assistant:** Claude through the local Claude Code CLI with all tools disabled. The prompt allows five result types (selection, clarify, answer, handoff, payment question). The server rejects unknown item IDs and any dollar amount that isn't a price or a sum of prices on the quote.
-- **UI:** plain HTML, CSS and JavaScript modules. Phone-first customer page, desktop shop page. Built to look like a work order rather than a dashboard.
+I used Node.js, SQLite, and plain HTML, CSS, and JavaScript. The customer page fits a phone; the shop page follows the layout of a work order. There are no npm dependencies.
 
-## Challenges
+PayPal Orders v2 creates an order with `intent: AUTHORIZE`, the selected line items, and an ID linking it to the customer’s approval. Payments v2 places the hold, captures it after the shop marks the work done, or releases it when the shop cancels. The server checks the quote version and amount before sending a payment request. It saves the payment ID and checks PayPal’s record before displaying the result.
 
-- **"Completed" doesn't mean charged.** After `authorize`, PayPal reports the *order* as `COMPLETED` while the *authorization* is only `CREATED`. The app reads the authorization and capture objects, not the order status.
-- **A successful charge without an amount.** In the first Sandbox run, a capture returned `201 COMPLETED` with only `id`, `status` and `links`. The test script crashed after saving the capture ID. We checked the result with `GET` instead of capturing again. The app now always saves the ID first and confirms status and amount with `GET`.
-- **PayPal doesn't stop a larger capture.** PayPal allows a capture to exceed the authorized amount within limits, and its review screen says the amount may change. The rule "charge exactly what the customer approved" is enforced by this server.
-- **Timeouts.** If PayPal doesn't answer, the outcome is unknown. The app blocks the button, shows "Checking with PayPal", and resends only with the original request ID after reading PayPal's state.
-- **The assistant repeating the customer's numbers.** In the first trial run, 4 of 19 answers correctly passed price requests to the shop but repeated the customer's figure ("your request for $20 off"). The validator rejected them. We changed the prompt so the assistant refers to "your price request" and kept the strict check. The second run passed 19 of 19 on the same fixed expectations.
+The AI reads the current quote through a local Claude Code CLI process. It returns item suggestions, answers, clarifying questions, or a message for the shop. The customer approves work on the page; the AI has no payment tools. The repository includes the source and complete local setup instructions. Running the assistant requires a signed-in Claude Code CLI; PayPal requires the reviewer’s own Sandbox app and buyer account.
 
-## What we learned
+## Challenges and what I learned
 
-PayPal's checkout window shows items, but the list is collapsed by default and sits below the payment method. The customer's real decision has to happen on our page, item by item, before PayPal opens. PayPal's job is to hold and move the agreed amount.
+**An order marked completed is not necessarily a charge.** PayPal can report a completed order while the money is only authorized. I separated order, authorization, and capture status in the app.
 
-## What's next
+**A missing response is not a failed payment.** One Sandbox capture succeeded but returned no amount. The app now saves the capture ID first, then reads the result from PayPal instead of sending another charge. Repeated requests reuse the same request ID.
 
-- Run the full buyer-approval path in the browser and record it (pending in this build).
-- Photos on quote items, and SMS delivery of the customer link.
-- Handling expired holds and reauthorization; refunds after a charge.
-- Testing with a real shop. No user research has been done yet.
+**The approved total needs an app-side check.** PayPal supports capturing more than the authorized amount within limits. Repair Approval recomputes prices from the shop’s quote and restricts the charge to the customer’s approved total.
+
+**The customer needs to see the items before PayPal opens.** PayPal’s item list was collapsed in the checkout I tested. The app therefore shows the selected work, excluded items, and total together before asking the customer to continue.
+
+## What I verified
+
+I ran the customer and shop screens against real PayPal Sandbox accounts: buyer approval, authorization, charging $420 and $103 after marking work done, and releasing a separate $25 hold. The local tests also cover duplicate requests, stale quotes, amount mismatches, and uncertain payment responses. Real AI trials and their failed first run are preserved in the repository.
+
+This is a Sandbox prototype using a fictional repair order. No real payments or customer study were involved. The next step is a shop trial to check whether customers understand the item selection and the difference between a hold and a charge. Photos and message delivery would make that trial easier to run.
+
+## AI and tools
+
+The in-app assistant uses Claude Sonnet 5.5 through Claude Code CLI. Claude Code with Opus 5.5 generated the implementation and tests; OpenAI Codex reviewed the app, edited the interface and documentation, and checked the browser flow. Earlier Opus and Fable discussions informed the design. Details are in `docs/AI_AND_TOOLS_DISCLOSURE.md`.

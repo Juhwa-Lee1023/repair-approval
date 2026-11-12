@@ -65,7 +65,7 @@ function nextAction(q) {
       return { hint: p.buyer_closed_at ? 'Customer left PayPal without approving. Nothing is held. Do not start yet.' : 'Waiting for the customer to approve in PayPal. Do not start yet.', buttons: [btn('secondary', 'Check with PayPal', () => post(`/api/shop/payments/${p.id}/reconcile`, 'Checking…', 'Checked with PayPal.'))], extra: [cancelBtn(p, 'Cancel request (nothing held)')] };
     case 'held':
       if (!p.work_done_at) return { hint: `PayPal holds ${usd(p.amount_cents)}. Do the approved work, then mark it done.`, buttons: [btn('primary', 'Mark work done', () => post(`/api/shop/payments/${p.id}/work-done`, 'Saving…', 'Marked done.'))], extra: [cancelBtn(p, 'Cancel work and release hold')] };
-      return { hint: `Work done. Charging takes exactly the approved ${usd(p.amount_cents)}.`, buttons: [btn('primary', `Charge ${usd(p.amount_cents)}`, () => post(`/api/shop/payments/${p.id}/capture`, 'Charging…', 'Charge checked with PayPal.'))] };
+      return { hint: `Work done. Ready to charge the approved ${usd(p.amount_cents)}.`, buttons: [btn('primary', `Charge ${usd(p.amount_cents)}`, () => post(`/api/shop/payments/${p.id}/capture`, 'Charging…', 'Charge checked with PayPal.'))] };
     case 'paid': return { hint: `Charged ${usd(p.amount_cents)}. Charge ID ${p.capture_id}.`, buttons: [] };
     case 'released': return { hint: 'Work cancelled. The hold was released; the customer was not charged.', buttons: [] };
     case 'capture_pending':
@@ -83,11 +83,23 @@ function btn(cls, label, fn) {
 }
 
 function cancelBtn(p, label) {
-  return btn('danger', label, async (b) => {
+  return btn('danger', label, (b) => {
+    const section = b.closest('section');
+    if (section.querySelector('.cancel-confirm')) return;
     const held = p.state === 'held';
-    const reason = prompt(held ? `Release the ${usd(p.amount_cents)} hold? The customer will not be charged for this work.\n\nReason (shown in history):` : 'Cancel this request? No PayPal hold exists.\n\nReason (shown in history):', held ? 'Part does not fit; work not done' : 'Cancelled by shop');
-    if (reason === null) return;
-    await post(`/api/shop/payments/${p.id}/cancel`, held ? 'Releasing…' : 'Cancelling…', held ? 'Hold released.' : 'Request cancelled.', { reason }, b);
+    const reasonId = `cancel-reason-${p.id}`;
+    const reason = h('input', { id: reasonId, required: true, maxlength: 500, value: held ? 'Part does not fit; work not done' : 'Cancelled by shop' });
+    const confirm = h('button', { class: 'danger', type: 'submit' }, held ? `Release ${usd(p.amount_cents)} hold` : 'Cancel this request');
+    const form = h('form', { class: 'notice cancel-confirm stack', onsubmit: async (e) => {
+      e.preventDefault();
+      await post(`/api/shop/payments/${p.id}/cancel`, held ? 'Releasing…' : 'Cancelling…', held ? 'Hold released.' : 'Request cancelled.', { reason: reason.value.trim() }, confirm);
+    } },
+      h('h3', {}, held ? `Cancel this work and release ${usd(p.amount_cents)}?` : 'Cancel this request?'),
+      h('p', {}, held ? 'The customer will not be charged for this work.' : 'No money is held for this request.'),
+      h('label', { for: reasonId }, 'Reason for cancellation'), reason,
+      h('div', { class: 'actions' }, confirm, h('button', { class: 'secondary', type: 'button', onclick: () => { form.remove(); b.focus(); } }, 'Keep this work')));
+    section.append(form);
+    reason.focus();
   });
 }
 

@@ -85,7 +85,7 @@ Verified in real PayPal Sandbox before this app (with the original probe script)
 
 Verified in real PayPal Sandbox through this app: order creation for $420, $103 and $25 with exact line items; double-click checkout producing one order; resending the same `PayPal-Request-Id` returning the same order; a return before buyer approval not placing a hold; a return with the wrong order ID being refused. See [`qa/sandbox-check.json`](qa/sandbox-check.json).
 
-Not yet run through this app: the buyer approving in the PayPal window, then hold, charge and release from the app's buttons. That needs a person in a browser and is described in [`docs/TESTING.md`](docs/TESTING.md). Also not tested: live payments, refunds, partial capture, reauthorization, and how fast a bank shows a released hold. A PayPal hold can be charged later, but the charge itself can still fail. PayPal lists the hold as valid for 29 days and recommends charging within 3 days; the app shows PayPal's own expiry time and doesn't set its own deadline.
+Verified in the browser through this app: buyer approval, $420 and $103 holds and charges, and release of a separate $25 hold. The shop and customer screens showed the corresponding final states. See [`qa/browser-results.json`](qa/browser-results.json) and [`docs/TESTING.md`](docs/TESTING.md). Not tested: live payments, refunds, partial capture, reauthorization, and how fast a bank shows a released hold. A PayPal hold can be charged later, but the charge itself can still fail. PayPal lists the hold as valid for 29 days and recommends charging within 3 days; the app shows PayPal's own expiry time and doesn't set its own deadline.
 
 ## Project layout
 
